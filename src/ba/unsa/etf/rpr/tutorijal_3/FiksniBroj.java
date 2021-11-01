@@ -39,10 +39,9 @@ public class FiksniBroj extends TelefonskiBroj{
         if (o == this)
             return true;
 
-        if (!(o instanceof FiksniBroj))
+        if (!(o instanceof FiksniBroj a))
             return false;
 
-        FiksniBroj a = (FiksniBroj) o;
         return broj.equals(a.broj);
     }
 

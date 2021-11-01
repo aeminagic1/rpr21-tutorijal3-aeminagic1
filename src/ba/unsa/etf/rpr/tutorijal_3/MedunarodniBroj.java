@@ -20,9 +20,8 @@ public class MedunarodniBroj extends TelefonskiBroj {
     public final boolean equals(Object o){
         if(o==this)
             return true;
-        if(!(o instanceof MedunarodniBroj))
+        if(!(o instanceof MedunarodniBroj a))
             return false;
-        MedunarodniBroj a= (MedunarodniBroj) o;
         return broj.equals(a.broj);
     }
 }

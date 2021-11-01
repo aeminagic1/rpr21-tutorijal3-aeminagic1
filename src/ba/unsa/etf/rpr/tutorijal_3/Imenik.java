@@ -18,29 +18,29 @@ public class Imenik {
         return "";
     }
     public String naSlovo(char s){
-        String sve="";
+        StringBuilder sve= new StringBuilder();
         int b=1;
         for (Map.Entry<String,TelefonskiBroj> sveOsobe: brojevi.entrySet()){
             if(sveOsobe.getKey().charAt(0)==s){
-                sve=sve+(b+". "+sveOsobe.getKey()+" - "+sveOsobe.getValue().ispisi()+"\n");
+                sve.append(b).append(". ").append(sveOsobe.getKey()).append(" - ").append(sveOsobe.getValue().ispisi()).append("\n");
             }
         }
-        return sve;
+        return sve.toString();
     }
-    Set<String> izGrada(FiksniBroj.Grad g){
+    Set<String> izGrada(){
         Set<String> osobe=new TreeSet<>();
         for(Map.Entry<String,TelefonskiBroj> o:brojevi.entrySet()){
-            if(o.getValue().ispisi().substring(0,3).equals(g.toString())){
+            if(o.getValue().ispisi().substring(0,3).equals(FiksniBroj.Grad.SARAJEVO.toString())){
                 osobe.add(o.getKey());
             }
         }
         return osobe;
     }
-    Set<TelefonskiBroj> izGradaBrojevi(FiksniBroj.Grad g){
+    Set<TelefonskiBroj> izGradaBrojevi(){
         Comparator<TelefonskiBroj> comp=Comparator.comparing(TelefonskiBroj::ispisi);
         Set<TelefonskiBroj> brojeviOsoba=new TreeSet<>(comp);
         for (Map.Entry<String,TelefonskiBroj> brOs: brojevi.entrySet()){
-            if(brOs.getValue().ispisi().substring(0,3).equals(g.toString())){
+            if(brOs.getValue().ispisi().substring(0,3).equals(FiksniBroj.Grad.SARAJEVO.toString())){
                 brojeviOsoba.add(brOs.getValue());
             }
         }

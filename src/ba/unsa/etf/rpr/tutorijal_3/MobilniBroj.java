@@ -20,9 +20,8 @@ public class MobilniBroj extends TelefonskiBroj{
     public final boolean equals(Object o){
         if(o==this)
             return true;
-        if(!(o instanceof MobilniBroj))
+        if(!(o instanceof MobilniBroj a))
             return false;
-        MobilniBroj a=(MobilniBroj) o;
         return broj.equals(a.broj);
     }
 
